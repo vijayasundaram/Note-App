@@ -26,11 +26,8 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 
 /**
  * A helper class for Google's OAuth2 authentication API.
- * @version 20130224
- * @author 1. Matyas Danter
- * @author 2. Mohammad
  */
-public final class GoogleAuthHelper {
+public final class GAHelper {
 
 	/**
 	 * Please provide a value for the CLIENT_ID constant before proceeding, set this up at https://code.google.com/apis/console/
@@ -44,13 +41,11 @@ public final class GoogleAuthHelper {
 	/**
 	 * Callback URI that google will redirect to after successful authentication
 	 */
-	private static final String CALLBACK_URI = "http://localhost:8888/";
+	private static final String CALLBACK_URI = "http://localhost:8888/oauth2callback/";
 
 	/**
 	 * Callback URI that google will redirect to after successful authentication
 	 */
-	private static String USER_INFO = "";
-	
 	// start google authentication constants
 	private static final Collection<String> SCOPE = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));
 	private static final String USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo";
@@ -64,14 +59,14 @@ public final class GoogleAuthHelper {
 	/**
 	 * Constructor initializes the Google Authorization Code Flow with CLIENT ID, SECRET, and SCOPE 
 	 */
-	public GoogleAuthHelper() {
+	public GAHelper() {
 		flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT,
 				JSON_FACTORY, CLIENT_ID, CLIENT_SECRET, SCOPE).build();
 		
 		generateStateToken();
 	}
 
-	public GoogleAuthHelper( String init) {
+	public GAHelper( String init) {
 		flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT,
 				JSON_FACTORY, CLIENT_ID, CLIENT_SECRET, SCOPE).build();
 	}	
@@ -97,32 +92,14 @@ public final class GoogleAuthHelper {
 		
 	}
 	
-	/**
-	 * Accessor for state token
-	 */
-	public String getStateToken(){
-		return stateToken;
-	}
-
-	/**
-	 * Accessor for state token
-	 */
-	public void printState( String console ){
-		System.out.println( "com.boomerang.google.auth.GoogleAuthHelper "+console );
-	}
-
-	/**
-	 * Accessor for state token
-	 */
-	public String getJsonObj(){
-		return USER_INFO;
-	}	
+	
 	
 	/**
 	 * Expects an Authentication Code, and makes an authenticated request for the user's profile information
 	 * @return JSON formatted user profile information
 	 * @param authCode authentication code provided by google
 	 */
+	@SuppressWarnings("unchecked")
 	public Map<String, String> getUserInfoJson(final String authCode) throws IOException {
 
 		final GoogleTokenResponse response = flow.newTokenRequest(authCode).setRedirectUri(CALLBACK_URI).execute();
@@ -133,12 +110,10 @@ public final class GoogleAuthHelper {
 		final com.google.api.client.http.HttpRequest request = requestFactory.buildGetRequest(url);
 		request.getHeaders().setContentType("application/json");
 		final String jsonIdentity = request.execute().parseAsString();
-		USER_INFO = jsonIdentity;
+		
 		
 		Map<String,String> map = new HashMap<String,String>();
-
 		ObjectMapper mapper = new ObjectMapper();
-
 		map = mapper.readValue(jsonIdentity, HashMap.class);
 		return map;
 

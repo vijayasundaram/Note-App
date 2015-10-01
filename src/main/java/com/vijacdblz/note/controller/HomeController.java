@@ -1,20 +1,28 @@
 package com.vijacdblz.note.controller;
 
+
+
 import java.io.IOException;
-import java.text.DateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import com.vijacdblz.note.utility.GoogleAuthHelper;
-import javax.servlet.http.HttpServletRequest;
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import com.vijacdblz.note.model.User;
+import com.vijacdblz.note.utility.GAHelper;
+import com.vijacdblz.note.utility.PMHelper;
+
 
 
 /**
@@ -25,35 +33,63 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,HttpServletRequest request) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		String authcode = request.getParameter("code");
-		GoogleAuthHelper gh = new GoogleAuthHelper();
-		try {
-			
-			 Map<String, String> map = gh.getUserInfoJson(authcode);
-			 model.addAttribute(map);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-		
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
+	public String showLoginPage() {
+	        return "user/login";
 	}
 	
 	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/oauth2callback/", method = RequestMethod.GET)
+	public ModelAndView showHome(@RequestParam("code") String authcode,HttpSession session) throws IOException {
+		
+		Map<String, String> userInfo = new HashMap<String, String>();
+		logger.info(authcode);
+		if(authcode!=null){
+			GAHelper gh = new GAHelper();
+			userInfo = gh.getUserInfoJson(authcode);
+			logger.info(userInfo.toString());
+			session.setAttribute("name", userInfo.get("name"));
+			session.setAttribute("email", userInfo.get("email"));
+			session.setAttribute("picture", userInfo.get("picture"));
+			session.setAttribute("id", userInfo.get("id"));
+			
+			String email = userInfo.get("email");
+			
+			
+			//Persisting user if user doesn't exist already
+			PersistenceManager pm = PMHelper.get().getPersistenceManager();
+			List<User> results = null;
+			Query q = pm.newQuery(User.class);
+			q.setFilter("email =='"+email+"'");
+			try {
+				results = (List<User>) q.execute();
+				if (results.isEmpty()) {
+					logger.error("Creating a new user");
+					User user = new User();
+					user.setId(userInfo.get("id"));
+					user.setName(userInfo.get("name"));
+					user.setEmail(userInfo.get("email"));
+					user.setPicture(userInfo.get("picture"));
+					user.setCreated(new Date());
+					pm.makePersistent(user);
+				}
+				else{
+					logger.info("User exist already:)");
+				}
+					
+			} finally {
+				q.closeAll();
+				pm.close();
+			}
+			
+		ModelAndView view=new ModelAndView("redirect:/notes/");
+		return view;
+		}
+		ModelAndView view=new ModelAndView("redirect:/login");
+		return view;
+	}
+}	
 
 	
-	
-}
+
