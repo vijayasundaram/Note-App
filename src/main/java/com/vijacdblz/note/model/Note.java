@@ -16,7 +16,7 @@ public class Note {
     private Key key;
 	
     @Persistent
-    private String note;
+    private String content;
 	
     @Persistent
     private String title;
@@ -32,12 +32,12 @@ public class Note {
 		this.key = key;
 	}
 
-	public String getNote() {
-		return note;
+	public String getContent() {
+		return content;
 	}
 
-	public void setNote(String note) {
-		this.note = note;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public String getTitle() {

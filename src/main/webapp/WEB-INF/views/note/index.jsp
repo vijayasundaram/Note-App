@@ -1,16 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html ng-app="notesApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Notes App</title>
+<link href="/resources/css/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="/resources/css/main.css" rel="stylesheet"/>
 </head>
 <body>
-DUck YOU!
-${username}
-${email}
-<img src="${picture}" />
-${id}
+<!-- Template copied from BootSnipp keenthemes -->
+<div class="container-fluid">
+    <div class="row profile">
+		<div class="col-md-2">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src= "${picture}"  class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						${username}
+					</div>
+					<div class="profile-usertitle-job">
+						${email}
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<a href="#/addNote" class="btn btn-success btn-sm">Add Note</a>
+					<a href="/logout/" class="btn btn-danger btn-sm">Log out</a>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#/">
+							<i class="glyphicon glyphicon-home"></i>
+							All Notes </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-user"></i>
+							Account Settings </a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+							<i class="glyphicon glyphicon-ok"></i>
+							Tasks </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-flag"></i>
+							Help </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-10">
+            <div class="notes-content">
+            	<!-- angular templating -->
+           		<!-- this is where content will be injected -->
+           		<div ng-view></div>
+            	{{message}}
+            </div>
+		</div>	   
+	</div>
+</div>
+<script type="text/javascript" src="/resources/js/lib/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/resources/js/lib/bootstrap.min.js"></script>
+<script src="/resources/js/lib/angular.js"></script>
+<script src="/resources/js/lib/angular-route.js"></script>
+<script src="/resources/js/lib/angular-animate.js"></script>
+<script src="/resources/js/notesapp.js" type ="text/javascript"></script>
 </body>
 </html>

@@ -59,4 +59,10 @@ public class User {
 	public void setUserNotes(List<Note> userNotes) {
 		this.userNotes = userNotes;
 	}
+	
+	//Append new note to exisiting note
+	public void appendUserNotes(Note note){
+		this.userNotes.add(note);
+	}
+	
 }
