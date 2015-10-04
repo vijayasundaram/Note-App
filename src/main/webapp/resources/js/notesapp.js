@@ -17,7 +17,7 @@ var notesApp = angular.module('notesApp', ['ngRoute','ngAnimate']);
             })
 
             
-            .when('/editNote', {
+            .when('/editNote/:key', {
                 templateUrl : '/resources/partials/editNote.html',
                 controller  : 'editNoteController'
             });
@@ -41,6 +41,7 @@ var notesApp = angular.module('notesApp', ['ngRoute','ngAnimate']);
     	    })
     	    .then(function(data) {
     	    	 console.log(data);
+    	    	 window.location.href = "#/";
     	    }, 
     	    function(response) { // optional
     	            // failed
@@ -48,6 +49,48 @@ var notesApp = angular.module('notesApp', ['ngRoute','ngAnimate']);
     	}
     });
 
-    notesApp.controller('editNoteController', function($scope) {
-        
+    notesApp.controller('editNoteController', function($scope,$routeParams,$http,$location) {
+    	$scope.key = $routeParams.key;
+    	//Get note values to populate the form
+    	$http.get('/note/'+$scope.key+'/').success(function(data) {
+      		 $scope.noteData = data;
+       	});
+    	//Put note values to update the note Object
+    	$scope.editNote = function(){
+    		$http({
+    	        url: '/note/'+$scope.key+'/',
+    	        method: "PUT",
+    	        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    	        data    : $.param($scope.noteData),
+    	    })
+    	    .then(function(data) {
+    	    	 console.log(data);
+    	    	 window.location.href = "#/";
+    	    }, 
+    	    function(response) { // optional
+    	            // failed
+    	    });
+    	}
+    	//Delete note
+    	$scope.deleteNote = function(){
+    		var canDelete = confirm("You sure you want to delete "+$scope.noteData.title+"?");
+    		if(canDelete)
+    		{
+    			$http({
+    		
+    	        url: '/note/'+$scope.key+'/',
+    	        method: "DELETE",
+    	        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+	    	    })
+	    	    .then(function(data) {
+	    	    	 console.log(data);
+	    	    	 window.location.href = "#/";
+	    	    }, 
+	    	    function(response) { // optional
+	    	            // failed
+	    	    });
+	    		}
+    		}
+    	
+    	
     });

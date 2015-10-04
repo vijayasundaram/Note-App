@@ -1,10 +1,13 @@
 <div ng-controller="listNotesController">
-	<ul class="cd-faq-group">
-	<li ng-repeat="note in notes">
-				<a class="cd-faq-trigger" href="#">How do I change my password?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus corporis, possimus officia sint sequi ex tenetur id impedit est pariatur iure animi non a ratione reiciendis nihil sed consequatur atque repellendus fugit perspiciatis rerum et. Dolorum consequuntur fugit deleniti, soluta fuga nobis. Ducimus blanditiis velit sit iste delectus obcaecati debitis omnis, assumenda accusamus cumque perferendis eos aut quidem! Aut, totam rerum, cupiditate quae aperiam voluptas rem inventore quas, ex maxime culpa nam soluta labore at amet nihil laborum? Explicabo numquam, sit fugit, voluptatem autem atque quis quam voluptate fugiat earum rem hic, reprehenderit quaerat tempore at. Aperiam.</p>
-				</div> <!-- cd-faq-content -->
-	</li>
-	</ul>
+	
+              <div class="panel panel-full-alt3" ng-repeat="note in notes">
+                <div class="panel-heading">
+                  <div class="tools"><a href="#/editNote/{{note.key}}" class="pull-right"><i class="glyphicon glyphicon-cog"></i></a><span class="title">{{note.title}}</span></div>
+                </div>
+                <div class="panel-body">
+                  <p>{{note.content}}</p>
+                  
+                </div>
+              </div>
+    
 </div>

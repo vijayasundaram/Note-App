@@ -2,6 +2,7 @@ package com.vijacdblz.note.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -61,8 +62,20 @@ public class User {
 	}
 	
 	//Append new note to exisiting note
-	public void appendUserNotes(Note note){
+	public void addNote(Note note){
 		this.userNotes.add(note);
+	}
+	
+	
+	public void deleteNoteWithKey(String key) {
+		Iterator<Note> iterator = this.userNotes.iterator();
+		while(iterator.hasNext()){
+			Note note = (Note) iterator.next();
+			if(note.getKey().equals(key)){
+				iterator.remove();
+			}
+			
+		}
 	}
 	
 }

@@ -1,5 +1,16 @@
-<div class="jumbotron text-center">
-        <h1>Edit Note</h1>
-        <a href="#/" class="btn btn-primary btn-lg">Home</a>
-		<a href="#about" class="btn btn-success btn-lg">About</a>
-    </div>
+<form ng-controller="editNoteController" ng-submit="editNote()">
+	<div class="row">
+            <div class="form-group col-sm-6">
+                <label for="name" class="h4">Title</label>
+                <input type="text" class="form-control"  placeholder="Your Title" name="note-title-add" ng-model="noteData.title" required>
+            </div>
+	</div>
+        <div class="form-group">
+            <label for="content" class="h4 ">Note</label>
+            <textarea class="form-control" rows="5" placeholder="Your Note!" name="note-content-add" ng-model="noteData.content" required></textarea>
+        </div>
+        <a href="" class="btn btn-danger btn-sm" ng-click="deleteNote()">Delete</a>
+        <button type="submit" class="btn btn-primary btn-sm pull-right ">Edit</button>
+        
+        <pre>{{noteData}}</pre>
+</form>
