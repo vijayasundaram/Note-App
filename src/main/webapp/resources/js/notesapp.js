@@ -1,4 +1,8 @@
-var notesApp = angular.module('notesApp', ['ngRoute','ngAnimate']);
+var notesApp = angular.module('notesApp', ['ngRoute','summernote','ngSanitize']).filter('trusthtml', ['$sce', function ($sce) {
+    return function(t) {
+        return $sce.trustAsHtml(t)
+    }
+}]);
 	
     // configure our routes
     notesApp.config(function($routeProvider) {
@@ -20,17 +24,30 @@ var notesApp = angular.module('notesApp', ['ngRoute','ngAnimate']);
             .when('/editNote/:key', {
                 templateUrl : '/resources/partials/editNote.html',
                 controller  : 'editNoteController'
-            });
+            })
+        
+	        .when('/accountSettings', {
+	            templateUrl : '/resources/partials/accountSettings.html',
+	            controller  : 'accountSettingsController'
+	        })
+	        
+	        .when('/help', {
+	            templateUrl : '/resources/partials/help.html',
+	            controller  : 'helpController'
+	        })
     });
 
 
     notesApp.controller('listNotesController', function($scope,$http) {
     	$http.get('/note/').success(function(data) {
    		 $scope.notes = data;
+   		 
+   		 
     	});
     });
 
     notesApp.controller('addNoteController', function($scope,$http) {
+    	
     	$scope.noteData    = {};
     	$scope.addNote = function(){
     		$http({
@@ -91,6 +108,18 @@ var notesApp = angular.module('notesApp', ['ngRoute','ngAnimate']);
 	    	    });
 	    		}
     		}
-    	
-    	
-    });
+    	});
+    
+    	//Account Settings Controller
+	    notesApp.controller('accountSettingsController', function($scope,$http) {
+	    	console.warn("in account settings controller");
+	   		 
+	    });
+	    
+	    //Help Controller
+	    notesApp.controller('helpController', function($scope,$http) {
+	    	console.warn("in  helpcontroller");
+	   		 
+	    });
+	    
+    

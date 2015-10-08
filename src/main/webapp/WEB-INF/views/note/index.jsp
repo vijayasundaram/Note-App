@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html ng-app="notesApp">
+<html data-ng-app="notesApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Notes App</title>
 <link href="/resources/css/bootstrap.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="/resources/css/summernote.css" rel="stylesheet"/>
 <link href="/resources/css/main.css" rel="stylesheet"/>
+
 </head>
 <body>
 <!-- Template copied from BootSnipp keenthemes -->
@@ -45,17 +47,12 @@
 							All Notes </a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#/accountSettings">
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
 						</li>
 						<li>
-							<a href="#" target="_blank">
-							<i class="glyphicon glyphicon-ok"></i>
-							Tasks </a>
-						</li>
-						<li>
-							<a href="#">
+							<a href="#/help">
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
 						</li>
@@ -68,8 +65,7 @@
             <div class="notes-content">
             	<!-- angular templating -->
            		<!-- this is where content will be injected -->
-           		<div ng-view></div>
-            	{{message}}
+           		<div data-ng-view></div>
             </div>
 		</div>	   
 	</div>
@@ -78,7 +74,9 @@
 <script type="text/javascript" src="/resources/js/lib/bootstrap.min.js"></script>
 <script src="/resources/js/lib/angular.js"></script>
 <script src="/resources/js/lib/angular-route.js"></script>
-<script src="/resources/js/lib/angular-animate.js"></script>
+<script src="/resources/js/lib/summernote.min.js"></script>
+<script src="/resources/js/lib/angular-summernote.js"></script>
+<script src="/resources/js/lib/angular-sanitize.js"></script>
 <script src="/resources/js/notesapp.js" type ="text/javascript"></script>
 </body>
 </html>

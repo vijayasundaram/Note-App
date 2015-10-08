@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.vijacdblz.note">
+	<logger name="com.vijac.notes">
 		<level value="info" />
 	</logger>
 	

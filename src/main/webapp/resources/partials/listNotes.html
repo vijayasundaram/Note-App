@@ -1,13 +1,17 @@
-<div ng-controller="listNotesController">
+<div data-ng-controller="listNotesController">
 	
-              <div class="panel panel-full-alt3" ng-repeat="note in notes">
+              <div class="panel panel-full-alt3" data-ng-repeat="note in notes">
                 <div class="panel-heading">
-                  <div class="tools"><a href="#/editNote/{{note.key}}" class="pull-right"><i class="glyphicon glyphicon-cog"></i></a><span class="title">{{note.title}}</span></div>
+                  <div>
+                  	<span class="title">{{note.title}}</span>
+                  	<a class="btn btn-xs btn-primary pull-right" href="#/editNote/{{note.key}}"><i class="icon-star"></i> Open</a>
+                  	<date>{{note.date | date : format : timezone}}</date>
+                  	
+                  </div>
                 </div>
                 <div class="panel-body">
-                  <p>{{note.content}}</p>
+                  <div data-ng-bind-html="note.content | trusthtml"></div>
                   
                 </div>
               </div>
-    
 </div>

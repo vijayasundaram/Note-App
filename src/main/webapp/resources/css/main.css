@@ -1,22 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Montserrat|Roboto+Slab|Bitter);
 body {
-  background:#ddd;
-}
-
-/* Note List */
-.alert-note{
-	background-color: #e3e3e3;
+  background:#fff;
 }
 
 /* Profile container */
 .profile {
   margin: 20px 0;
-}
-
-/* Profile sidebar */
-.profile-sidebar {
-	
-  padding: 20px 0 10px 0;
-  background: #fff;
 }
 
 .profile-userpic img {
@@ -55,6 +44,17 @@ body {
   margin-top: 10px;
 }
 
+
+.title-heading{
+	margin-left: 0px;
+    margin-top: -40px;
+    padding-left:20px !important;
+    font-size: 26px !important;
+    height:50px;
+    font-weight:700;
+    color:#5b9bd1;
+    background-color: #f6f9fb;
+}
 .profile-userbuttons .btn {
   text-transform: uppercase;
   font-size: 11px;
@@ -109,34 +109,45 @@ body {
 /* Notes Content */
 .notes-content {
   padding: 20px;
-  background: #fff;
   min-height: 460px;
 }
 
 pre{
-	width:500px;
+	bottom:10px!important;
+	width:100%;
 }
 
 /* BASE PAGE END */
+date{
+	color:#5a7391;
+	display:block;
+	font-size:10px;
+}
 
 
+.note-editor{
+	border-radius:0px;
+	webkit-box-shadow:none;
+	box-shadow:none;
+	margin:-15px -15px 0px;
+}
 
-/* CODROPS TIMELINE VIEW */
 .panel.panel-full-alt3 {
-   
-    color: #93a3b5;
-    margin-bottom: 8px;	
+    margin: -15px -15px 25px;
+    color: #666;
+    	
 }
 .panel-heading {
     padding: 10px 15px 10px;
-    border-bottom: 1px solid #ddd;
     background-color:#f6f9fb;
     font-size:16px;
     border-top-right-radius: -1;
     border-top-left-radius: -1;
     color:#5b9bd1;
 }
-
+.note-toolbar{
+	background-color:#fff !important;
+}
 
 
 
