@@ -13,12 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import com.vijac.notes.model.Note;
 import com.vijac.notes.model.User;
@@ -130,11 +125,8 @@ public class NoteController {
 	@RequestMapping(value="/{key}/", method=RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deleteNote(@PathVariable String key,HttpSession session){
-		
-		
-		//Get User, Append note to existing List<Note>
+		//Get User, Delete note(key) in existing List<Note>
 		String email = (String) session.getAttribute("email");
-		
 		PersistenceManager pm = PMHelper.get().getPersistenceManager();
 		Query q = pm.newQuery(User.class, "email == value");
 		q.declareParameters("String value");
@@ -154,9 +146,6 @@ public class NoteController {
 		} finally {
 			pm.close();
 		}
-		
-		
-		
 	}
 	
 	

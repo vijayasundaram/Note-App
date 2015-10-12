@@ -16,29 +16,33 @@ public class AuthenticationInterceptor implements HandlerInterceptor  {
     @Override
     public boolean preHandle(HttpServletRequest request,
             HttpServletResponse response, Object handler) throws Exception {
-         
-        log.info("Inside preHandle");
-        
-        String userEmail = (String) request.getSession().getAttribute("email");
-        log.info("Session email : "+userEmail);
-        boolean urlFromRoot = (request.getRequestURI().equals("/login/")||request.getRequestURI().equals("/oauth2callback/"));
-        
-        
-        if(urlFromRoot){
-        	log.info("we are in root urls: no auth needed");
-        	return true;
-        }
-        else if(userEmail== null){
-        	log.info("Not in root urls and email is null");
-        	log.info(request.getRequestURL().toString());
-        	response.sendRedirect("/login/");
-        	return false;
-        }
-        else{
-        	log.info("user session is set! :)");
-        	return true;
-        }
-    }
+        	String userEmail = (String) request.getSession().getAttribute("email");
+
+            //List of urls that can be accessed without authentication!
+
+	        boolean urlFromRoot = (request.getRequestURI().equals("/login/")||
+                    request.getRequestURI().equals("/login")||
+                    request.getRequestURI().equals("/oauth2callback/")||
+                    request.getRequestURI().equals("/oauth2callback")||
+                    request.getRequestURI().equals("/account/register/")||
+                    request.getRequestURI().equals("/account/register")
+                                    );
+	        
+	        
+	        if(urlFromRoot){
+	        	log.info("we are in root urls: no auth needed");
+	        	return true;
+	        }
+	        else if(userEmail== null){
+	        	log.info("Authentication failed mate :(");
+	        	log.info(request.getRequestURL().toString());
+	        	response.sendRedirect("/login/");
+	        	return false;
+	        }
+	        else{
+	        	return true;
+	        }
+	    }
      
     @Override
     public void postHandle(HttpServletRequest request,

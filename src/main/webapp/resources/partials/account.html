@@ -1,0 +1,111 @@
+<!-- User Stats -->
+
+<div class="row">
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-primary">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-sticky-note fa-3x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div>Notes created</div>
+                       <div class="huge">26</div>
+                   </div>
+               </div>
+           </div>
+           <a href="">
+               <div class="panel-footer">
+                   <span class="pull-left">View Details</span>
+                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                   <div class="clearfix"></div>
+               </div>
+           </a>
+       </div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-warning">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-birthday-cake fa-3x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div>Joined on!</div>
+                       <div class="huge">Oct 8, 2015</div>
+                   </div>
+               </div>
+           </div>
+           <a href="">
+               <div class="panel-footer">
+                   <span class="pull-left">View Details</span>
+                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                   <div class="clearfix"></div>
+               </div>
+           </a>
+       </div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-danger">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-trash fa-3x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div>Notes archived!</div>
+                       <div class="huge">Oct 8, 2015</div>
+                   </div>
+               </div>
+           </div>
+           <a href="">
+               <div class="panel-footer">
+                   <span class="pull-left">View Details</span>
+                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                   <div class="clearfix"></div>
+               </div>
+           </a>
+       </div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-info">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-coffee fa-3x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div>Last active</div>
+                       <div class="huge">Oct 8, 2015</div>
+                   </div>
+               </div>
+           </div>
+           <a href="">
+               <div class="panel-footer">
+                   <span class="pull-left">View Details</span>
+                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                   <div class="clearfix"></div>
+               </div>
+           </a>
+       </div>
+	</div>	
+</div>
+
+<!-- User Account Settings -->
+
+<div class="row">
+	<div class="col-md-4">
+		<p>Change your password</p>
+		<form data-ng-controller="userAccountController" data-ng-submit="addAccountPassword()">
+			<input type="password" class="form-control"  placeholder="password" name="password" data-ng-model="user.password" required>
+			<input type="password" class="form-control"  placeholder="once again" name="password-repeat" data-ng-model="user.password-repeat" required>
+			<p></p>
+			<button submit="submit" class="btn btn-sm btn-primary">Change Password</button>
+		</form>
+	</div>
+	<div class="col-md-4">
+		Send me a random password by email
+		<button class="btn btn-sm btn-info">Send me</button>
+	</div>
+
+</div>

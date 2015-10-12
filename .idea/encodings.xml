@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/controller/AccountController.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/controller/HomeController.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/controller/NoteController.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/model/Note.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/model/User.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/utility/AuthenticationInterceptor.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/utility/GAHelper.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vijac/notes/utility/PMHelper.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/aopalliance-1.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/appengine-api-1.0-sdk-1.9.27.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/appengine-api-labs.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/appengine-endpoints-deps.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/appengine-endpoints.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/appengine-jsr107cache-1.9.27.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/appengine-local-runtime-shared.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/asm-4.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/aspectjrt-1.6.10.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-codec-1.3.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-logging-1.1.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/datanucleus-api-jpa-3.1.3.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/datanucleus-appengine-2.1.2.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/datanucleus-core-3.1.3.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/el-api.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/geronimo-jpa_2.0_spec-1.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/google-api-client-1.20.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/google-http-client-1.20.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/google-http-client-jackson2-1.20.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/google-oauth-client-1.20.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/guava-jdk5-13.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/httpclient-4.0.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/httpcore-4.0.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-core-2.1.3.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-core-asl-1.5.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-mapper-asl-1.5.0.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/javax.inject-1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jdo-api-3.0.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jsp-api.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jsr107cache-1.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jsr305-1.3.9.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jstl-1.2.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jta-1.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/log4j-1.2.15.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/repackaged-appengine-ant-1.7.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/repackaged-appengine-ant-launcher-1.7.1.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/repackaged-appengine-jasper-6.0.29.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/repackaged-appengine-jasper-el-6.0.29.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/repackaged-appengine-tomcat-juli-6.0.29.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/servlet-api.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/slf4j-api-1.6.6.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/slf4j-log4j12-1.6.6.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/classes" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources" charset="windows-1252" />
+  </component>
+</project>

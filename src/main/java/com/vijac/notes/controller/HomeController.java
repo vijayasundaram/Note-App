@@ -11,6 +11,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.servlet.http.HttpSession;
 
+import com.vijac.notes.utility.PMHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ import javax.mail.internet.MimeMessage;
 
 import com.vijac.notes.model.User;
 import com.vijac.notes.utility.GAHelper;
-import com.vijac.notes.utility.PMHelper;
+
 
 
 
@@ -92,13 +93,13 @@ public class HomeController {
 					pm.makePersistent(user);
 					
 					
-					//Send a wecome email
+					//Send a welcome email
 					String msgBody = "Welcome to sunday samayal";
 					Properties props = new Properties();
 					Session sessionMail = Session.getDefaultInstance(props, null);
 					try {
 					    Message msg = new MimeMessage(sessionMail);
-					    msg.setFrom(new InternetAddress("vijaya@a-cti.com", "VijacNotes Admin"));
+					    msg.setFrom(new InternetAddress("vijay.sundaram@a-cti.com", "Vijac-Notes"));
 					    msg.addRecipient(Message.RecipientType.TO,
 					     new InternetAddress(email, userInfo.get("name")));
 					    msg.setSubject("Your Notes account has been created successfully");

@@ -29,8 +29,8 @@ public final class GAHelper {
 	
 	private static final String CLIENT_ID = "102707723326-h8rumlfg3qa9fld13hvv1m4ca6he8bo7.apps.googleusercontent.com";
 	private static final String CLIENT_SECRET = "6P6124J2c2FmLBE8R4lmppml";
-	private static final String CALLBACK_URI = "http://localhost:8888/oauth2callback/";
-	//private static final String CALLBACK_URI = "http://vijac-notes.appspot.com/oauth2callback/";
+	//private static final String CALLBACK_URI = "http://localhost:8888/oauth2callback/";
+	private static final String CALLBACK_URI = "http://vijac-notes.appspot.com/oauth2callback/";
 	// start google authentication constants
 	private static final Collection<String> SCOPE = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));
 	private static final String USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo";
